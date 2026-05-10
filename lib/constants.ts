@@ -1,0 +1,118 @@
+// Licensed under the Apache License, Version 2.0
+export const ARCHETYPES = [
+  {
+    id: 1,
+    name: "EXPLOSIVE POWERHOUSE",
+    emoji: "⚡",
+    color: "#ef4444",
+    tagline: "Built for force. Your profile aligns with Team USA's most powerful athletes across 120 years.",
+    olympicSports: ["Shot Put", "Discus Throw", "Hammer Throw", "Javelin Throw", "Weightlifting", "Wrestling (Superheavy)"],
+    paralympicSports: ["Paralympic Powerlifting", "Shot Put (F40-F46)", "Discus (F40-F46)"],
+    stats: { power: 9, endurance: 3, precision: 5 },
+  },
+  {
+    id: 2,
+    name: "AEROBIC ENGINE",
+    emoji: "🌊",
+    color: "#06b6d4",
+    tagline: "Built for distance. Your profile aligns with Team USA's elite endurance athletes.",
+    olympicSports: ["Marathon", "Triathlon", "Road Cycling", "Rowing", "Cross-Country Skiing", "Open Water Swimming"],
+    paralympicSports: ["Handcycle (H-classes)", "Para-Triathlon", "Para-Rowing", "Seated Throwing (F53-F54)"],
+    stats: { power: 4, endurance: 10, precision: 5 },
+  },
+  {
+    id: 3,
+    name: "PRECISION ARTIST",
+    emoji: "🎯",
+    color: "#8b5cf6",
+    tagline: "Built for accuracy. Your profile aligns with Team USA's most technically precise athletes.",
+    olympicSports: ["Archery", "Shooting", "Fencing", "Artistic Gymnastics", "Figure Skating"],
+    paralympicSports: ["Para-Archery", "Para-Shooting (SH1/SH2)", "Boccia", "Wheelchair Fencing"],
+    stats: { power: 4, endurance: 5, precision: 10 },
+  },
+  {
+    id: 4,
+    name: "VERSATILE DYNAMO",
+    emoji: "🔄",
+    color: "#f59e0b",
+    tagline: "Built for everything. Your profile aligns with Team USA's most complete multi-sport athletes.",
+    olympicSports: ["Decathlon", "Heptathlon", "Modern Pentathlon", "Swimming (multi-event)"],
+    paralympicSports: ["Para-Athletics Multi-Event", "Sitting Volleyball"],
+    stats: { power: 7, endurance: 7, precision: 7 },
+  },
+  {
+    id: 5,
+    name: "STRENGTH ANCHOR",
+    emoji: "💪",
+    color: "#f97316",
+    tagline: "Built to hold the line. Your profile aligns with Team USA's grappling and contact sport athletes.",
+    olympicSports: ["Judo", "Greco-Roman Wrestling", "Freestyle Wrestling", "Rugby Sevens"],
+    paralympicSports: ["Wheelchair Rugby", "Judo (Visually Impaired)", "Para-Powerlifting"],
+    stats: { power: 8, endurance: 6, precision: 5 },
+  },
+  {
+    id: 6,
+    name: "REACTIVE SPEEDSTER",
+    emoji: "🚀",
+    color: "#22c55e",
+    tagline: "Built for speed. Your profile aligns with Team USA's fastest sprint and explosive power athletes.",
+    olympicSports: ["100m Sprint", "200m Sprint", "Long Jump", "Triple Jump", "Table Tennis", "Badminton"],
+    paralympicSports: ["Sprint Wheelchair Racing (T51-T54)", "Para-Table Tennis", "Para-Badminton", "T64 Sprint"],
+    stats: { power: 8, endurance: 5, precision: 6 },
+  },
+  {
+    id: 7,
+    name: "KINETIC CONTROLLER",
+    emoji: "🧘",
+    color: "#ec4899",
+    tagline: "Built for grace. Your profile aligns with Team USA's most technically fluid and controlled athletes.",
+    olympicSports: ["Diving", "Rhythmic Gymnastics", "Artistic Swimming", "Equestrian", "Sailing"],
+    paralympicSports: ["Para-Equestrian", "Paralympic Swimming (Technical Events)", "Para-Sailing"],
+    stats: { power: 4, endurance: 6, precision: 9 },
+  },
+  {
+    id: 8,
+    name: "ADAPTIVE WARRIOR",
+    emoji: "🌍",
+    color: "#f59e0b",
+    tagline: "Built to compete on any stage. Your profile aligns with Team USA's Paralympic champions.",
+    olympicSports: [],
+    paralympicSports: ["Wheelchair Basketball", "Wheelchair Tennis", "Blind Football", "Goalball", "Boccia", "Sitting Volleyball"],
+    stats: { power: 7, endurance: 7, precision: 8 },
+  },
+] as const;
+
+export type ArchetypeId = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
+
+export const SPORT_LIST = [
+  "Running", "Swimming", "Cycling", "Weightlifting", "Martial Arts",
+  "Wrestling", "Gymnastics", "Basketball", "Football", "Baseball",
+  "Soccer", "Tennis", "Volleyball", "Track & Field", "Rowing",
+  "Skiing", "Skating", "Archery", "Shooting", "Equestrian",
+  "Climbing", "Triathlon", "Badminton", "Table Tennis", "Boxing",
+] as const;
+
+export const IMPAIRMENT_OPTIONS = [
+  { group: "Limb Impairment", label: "Limb deficiency (upper limb)", value: "limb_upper" },
+  { group: "Limb Impairment", label: "Limb deficiency (lower limb)", value: "limb_lower" },
+  { group: "Limb Impairment", label: "Leg length difference", value: "leg_length" },
+  { group: "Limb Impairment", label: "Short stature", value: "short_stature" },
+  { group: "Muscle Function / Tone", label: "Hypertonia (muscle tension/spasticity)", value: "hypertonia" },
+  { group: "Muscle Function / Tone", label: "Ataxia (coordination impairment)", value: "ataxia" },
+  { group: "Muscle Function / Tone", label: "Athetosis (involuntary movement)", value: "athetosis" },
+  { group: "Vision", label: "Vision impairment (partial — B2/B3)", value: "vision_partial" },
+  { group: "Vision", label: "Vision impairment (total — B1)", value: "vision_total" },
+  { group: "Intellectual", label: "Intellectual impairment (II1)", value: "intellectual" },
+] as const;
+
+export const DESIGN_TOKENS = {
+  background: "#0a0a0f",
+  surface: "#111118",
+  surfaceElevated: "#1a1a2e",
+  border: "rgba(255,255,255,0.08)",
+  textPrimary: "#f8fafc",
+  textSecondary: "#94a3b8",
+  gold: "#f59e0b",
+  blue: "#3b82f6",
+  purple: "#8b5cf6",
+} as const;

@@ -1,0 +1,10 @@
+{
+  "1": { "name": "EXPLOSIVE POWERHOUSE", "centroid": [178, 115, 181, 36.3] },
+  "2": { "name": "AEROBIC ENGINE", "centroid": [175, 68, 178, 22.2] },
+  "3": { "name": "PRECISION ARTIST", "centroid": [165, 60, 166, 22.0] },
+  "4": { "name": "VERSATILE DYNAMO", "centroid": [180, 78, 183, 24.1] },
+  "5": { "name": "STRENGTH ANCHOR", "centroid": [172, 95, 174, 32.1] },
+  "6": { "name": "REACTIVE SPEEDSTER", "centroid": [185, 73, 191, 21.3] },
+  "7": { "name": "KINETIC CONTROLLER", "centroid": [163, 55, 164, 20.7] },
+  "8": { "name": "ADAPTIVE WARRIOR", "centroid": [175, 75, 177, 24.5] }
+}

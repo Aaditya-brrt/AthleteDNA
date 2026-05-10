@@ -1,0 +1,77 @@
+{
+  "100m Sprint": {
+    "unit": "seconds",
+    "lower_is_better": true,
+    "ranges_by_archetype": {
+      "6": { "min": 9.69, "max": 10.20, "median": 9.95 },
+      "4": { "min": 10.10, "max": 10.55, "median": 10.30 }
+    },
+    "context": "Athletes in the Reactive Speedster archetype have historically been represented in the 9.7s–10.2s range across Team USA's 120 years."
+  },
+  "200m Sprint": {
+    "unit": "seconds",
+    "lower_is_better": true,
+    "ranges_by_archetype": {
+      "6": { "min": 19.32, "max": 20.50, "median": 20.10 }
+    },
+    "context": "Sprint specialists with this archetype have historically clocked in the 19.3s–20.5s range."
+  },
+  "Shot Put": {
+    "unit": "meters",
+    "lower_is_better": false,
+    "ranges_by_archetype": {
+      "1": { "min": 19.5, "max": 23.5, "median": 21.7 }
+    },
+    "context": "Athletes in the Explosive Powerhouse archetype have historically thrown between 19.5m and 23.5m for Team USA."
+  },
+  "Discus Throw": {
+    "unit": "meters",
+    "lower_is_better": false,
+    "ranges_by_archetype": {
+      "1": { "min": 60.0, "max": 72.0, "median": 66.5 }
+    },
+    "context": "Discus throwers in this archetype have historically been represented in the 60m–72m range."
+  },
+  "Marathon": {
+    "unit": "minutes",
+    "lower_is_better": true,
+    "ranges_by_archetype": {
+      "2": { "min": 128, "max": 140, "median": 133 }
+    },
+    "context": "Marathon athletes in the Aerobic Engine archetype have historically finished in 2:08–2:20 ranges."
+  },
+  "Long Jump": {
+    "unit": "meters",
+    "lower_is_better": false,
+    "ranges_by_archetype": {
+      "6": { "min": 8.20, "max": 8.95, "median": 8.50 }
+    },
+    "context": "Long jumpers in this archetype have historically been represented in the 8.20m–8.95m range."
+  },
+  "Sprint Wheelchair Racing (T51-T54)": {
+    "unit": "seconds",
+    "lower_is_better": true,
+    "ranges_by_archetype": {
+      "6": { "min": 13.5, "max": 14.8, "median": 14.1 },
+      "8": { "min": 13.7, "max": 15.0, "median": 14.3 }
+    },
+    "context": "Athletes with this profile in T54 100m wheelchair racing have historically been represented in the 13.5s–14.8s range."
+  },
+  "Paralympic Powerlifting": {
+    "unit": "kilograms",
+    "lower_is_better": false,
+    "ranges_by_archetype": {
+      "1": { "min": 180, "max": 240, "median": 210 },
+      "5": { "min": 170, "max": 230, "median": 200 }
+    },
+    "context": "Paralympic powerlifters with this archetype have historically lifted between 180kg and 240kg in their weight class."
+  },
+  "Weightlifting": {
+    "unit": "kilograms (total)",
+    "lower_is_better": false,
+    "ranges_by_archetype": {
+      "1": { "min": 320, "max": 410, "median": 365 }
+    },
+    "context": "Olympic weightlifters in this archetype have historically posted total scores in the 320kg–410kg range."
+  }
+}

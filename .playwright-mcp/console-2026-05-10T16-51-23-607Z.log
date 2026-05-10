@@ -1,0 +1,76 @@
+[     336ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/0z~i_next_dist_080cxwf._.js:2477
+[     377ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/0z~i_next_dist_080cxwf._.js:2477
+[     630ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0z~i_next_dist_080cxwf._.js:2477
+[     819ms] [WARNING] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead. @ http://localhost:3000/_next/static/chunks/0z~i_next_dist_080cxwf._.js:2477
+[     896ms] [LOG] [Fast Refresh] done in 366ms @ http://localhost:3000/_next/static/chunks/0z~i_next_dist_080cxwf._.js:2477
+[   12531ms] Error: Target ref is defined but not hydrated. For more information and steps for solving, visit https://motion.dev/troubleshooting/use-scroll-ref
+    at invariant (http://localhost:3000/_next/static/chunks/node_modules__pnpm_11ho.p6._.js:1949:19)
+    at useScroll.useEffect (http://localhost:3000/_next/static/chunks/node_modules__pnpm_11ho.p6._.js:16637:252)
+    at Object.react_stack_bottom_frame (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:15087:22)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:965:74)
+    at commitHookEffectListMount (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:7255:167)
+    at commitHookPassiveMountEffects (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:7290:60)
+    at commitPassiveMountOnFiber (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8689:33)
+    at recursivelyTraversePassiveMountEffects (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8676:316)
+    at commitPassiveMountOnFiber (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8750:17)
+    at recursivelyTraversePassiveMountEffects (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8676:316)
+    at commitPassiveMountOnFiber (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8750:17)
+    at recursivelyTraversePassiveMountEffects (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8676:316)
+    at commitPassiveMountOnFiber (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8688:17)
+    at recursivelyTraversePassiveMountEffects (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8676:316)
+    at commitPassiveMountOnFiber (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8693:17)
+    at recursivelyTraversePassiveMountEffects (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8676:316)
+    at commitPassiveMountOnFiber (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8688:17)
+    at recursivelyTraversePassiveMountEffects (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8676:316)
+    at commitPassiveMountOnFiber (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8750:17)
+    at recursivelyTraversePassiveMountEffects (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8676:316)
+    at commitPassiveMountOnFiber (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8688:17)
+    at recursivelyTraversePassiveMountEffects (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8676:316)
+    at commitPassiveMountOnFiber (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8688:17)
+    at recursivelyTraversePassiveMountEffects (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8676:316)
+    at commitPassiveMountOnFiber (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8750:17)
+    at recursivelyTraversePassiveMountEffects (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8676:316)
+    at commitPassiveMountOnFiber (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8750:17)
+    at recursivelyTraversePassiveMountEffects (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8676:316)
+    at commitPassiveMountOnFiber (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8750:17)
+    at recursivelyTraversePassiveMountEffects (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8676:316)
+    at commitPassiveMountOnFiber (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8750:17)
+    at recursivelyTraversePassiveMountEffects (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8676:316)
+    at commitPassiveMountOnFiber (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8688:17)
+    at recursivelyTraversePassiveMountEffects (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8676:316)
+    at commitPassiveMountOnFiber (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8688:17)
+    at recursivelyTraversePassiveMountEffects (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8676:316)
+    at commitPassiveMountOnFiber (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8688:17)
+    at recursivelyTraversePassiveMountEffects (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8676:316)
+    at commitPassiveMountOnFiber (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8750:17)
+    at recursivelyTraversePassiveMountEffects (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8676:316)
+    at commitPassiveMountOnFiber (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8750:17)
+    at recursivelyTraversePassiveMountEffects (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8676:316)
+    at commitPassiveMountOnFiber (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8688:17)
+    at recursivelyTraversePassiveMountEffects (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8676:316)
+    at commitPassiveMountOnFiber (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8693:17)
+    at recursivelyTraversePassiveMountEffects (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8676:316)
+    at commitPassiveMountOnFiber (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8688:17)
+    at recursivelyTraversePassiveMountEffects (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8676:316)
+    at commitPassiveMountOnFiber (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8688:17)
+    at recursivelyTraversePassiveMountEffects (http://localhost:3000/_next/static/chunks/0z~i_next_dist_compiled_react-dom_0-pjtxe._.js:8676:316)
+[   12686ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0z~i_next_dist_080cxwf._.js:2477
+[   13095ms] [LOG] THREE.WebGLRenderer: Context Lost. @ http://localhost:3000/_next/static/chunks/0z~i_next_dist_080cxwf._.js:2477
+[   13286ms] [LOG] [Fast Refresh] done in 701ms @ http://localhost:3000/_next/static/chunks/0z~i_next_dist_080cxwf._.js:2477
+[   49093ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0z~i_next_dist_080cxwf._.js:2477
+[   49336ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://localhost:3000/_next/static/chunks/0z~i_next_dist_080cxwf._.js:2477
+[   49338ms] [LOG] [Fast Refresh] done in 323ms @ http://localhost:3000/_next/static/chunks/0z~i_next_dist_080cxwf._.js:2477
+[   49550ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0z~i_next_dist_080cxwf._.js:2477
+[   49596ms] [LOG] [Fast Refresh] done in 149ms @ http://localhost:3000/_next/static/chunks/0z~i_next_dist_080cxwf._.js:2477
+[   49813ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/0z~i_next_dist_080cxwf._.js:2477
+[   49844ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/0z~i_next_dist_080cxwf._.js:2477
+[   50248ms] [WARNING] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead. @ http://localhost:3000/_next/static/chunks/0z~i_next_dist_080cxwf._.js:2477
+[   67530ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0z~i_next_dist_080cxwf._.js:2477
+[   67817ms] [LOG] [Fast Refresh] done in 329ms @ http://localhost:3000/_next/static/chunks/0z~i_next_dist_080cxwf._.js:2477
+[   67918ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0z~i_next_dist_080cxwf._.js:2477
+[   67934ms] [LOG] [Fast Refresh] done in 117ms @ http://localhost:3000/_next/static/chunks/0z~i_next_dist_080cxwf._.js:2477
+[   68044ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0z~i_next_dist_080cxwf._.js:2477
+[   68069ms] [LOG] [Fast Refresh] done in 126ms @ http://localhost:3000/_next/static/chunks/0z~i_next_dist_080cxwf._.js:2477
+[   68164ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/0z~i_next_dist_080cxwf._.js:2477
+[   68182ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/0z~i_next_dist_080cxwf._.js:2477
+[   68597ms] [WARNING] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead. @ http://localhost:3000/_next/static/chunks/0z~i_next_dist_080cxwf._.js:2477

@@ -1,0 +1,65 @@
+[
+  { "name": "Michael Johnson", "sex": "M", "age": 28, "height_cm": 185, "weight_kg": 79, "sport": "Athletics", "event": "200m / 400m", "year": 1996, "season": "Summer", "medal": "Gold", "games": "1996 Atlanta", "archetype_id": 6 },
+  { "name": "Carl Lewis", "sex": "M", "age": 23, "height_cm": 188, "weight_kg": 80, "sport": "Athletics", "event": "100m / Long Jump", "year": 1984, "season": "Summer", "medal": "Gold", "games": "1984 Los Angeles", "archetype_id": 6 },
+  { "name": "Florence Griffith Joyner", "sex": "F", "age": 28, "height_cm": 170, "weight_kg": 59, "sport": "Athletics", "event": "100m / 200m", "year": 1988, "season": "Summer", "medal": "Gold", "games": "1988 Seoul", "archetype_id": 6 },
+  { "name": "Jackie Joyner-Kersee", "sex": "F", "age": 26, "height_cm": 178, "weight_kg": 70, "sport": "Athletics", "event": "Heptathlon", "year": 1988, "season": "Summer", "medal": "Gold", "games": "1988 Seoul", "archetype_id": 4 },
+  { "name": "Allyson Felix", "sex": "F", "age": 30, "height_cm": 168, "weight_kg": 57, "sport": "Athletics", "event": "200m / 400m", "year": 2016, "season": "Summer", "medal": "Gold", "games": "2016 Rio", "archetype_id": 6 },
+  { "name": "Justin Gatlin", "sex": "M", "age": 22, "height_cm": 185, "weight_kg": 83, "sport": "Athletics", "event": "100m", "year": 2004, "season": "Summer", "medal": "Gold", "games": "2004 Athens", "archetype_id": 6 },
+  { "name": "Sha'Carri Richardson", "sex": "F", "age": 24, "height_cm": 165, "weight_kg": 55, "sport": "Athletics", "event": "100m", "year": 2024, "season": "Summer", "medal": "Silver", "games": "2024 Paris", "archetype_id": 6 },
+  { "name": "Noah Lyles", "sex": "M", "age": 27, "height_cm": 180, "weight_kg": 73, "sport": "Athletics", "event": "100m / 200m", "year": 2024, "season": "Summer", "medal": "Gold", "games": "2024 Paris", "archetype_id": 6 },
+  { "name": "Bryce Hoppel", "sex": "M", "age": 26, "height_cm": 183, "weight_kg": 75, "sport": "Athletics", "event": "800m", "year": 2024, "season": "Summer", "games": "2024 Paris", "archetype_id": 2 },
+
+  { "name": "Reese Hoffa", "sex": "M", "age": 32, "height_cm": 183, "weight_kg": 132, "sport": "Athletics", "event": "Shot Put", "year": 2008, "season": "Summer", "medal": "Bronze", "games": "2008 Beijing", "archetype_id": 1 },
+  { "name": "Ryan Crouser", "sex": "M", "age": 28, "height_cm": 201, "weight_kg": 145, "sport": "Athletics", "event": "Shot Put", "year": 2021, "season": "Summer", "medal": "Gold", "games": "2020 Tokyo", "archetype_id": 1 },
+  { "name": "Joe Kovacs", "sex": "M", "age": 32, "height_cm": 183, "weight_kg": 133, "sport": "Athletics", "event": "Shot Put", "year": 2021, "season": "Summer", "medal": "Silver", "games": "2020 Tokyo", "archetype_id": 1 },
+  { "name": "Valarie Allman", "sex": "F", "age": 26, "height_cm": 188, "weight_kg": 80, "sport": "Athletics", "event": "Discus Throw", "year": 2021, "season": "Summer", "medal": "Gold", "games": "2020 Tokyo", "archetype_id": 1 },
+  { "name": "Chase Ealey", "sex": "F", "age": 28, "height_cm": 175, "weight_kg": 95, "sport": "Athletics", "event": "Shot Put", "year": 2024, "season": "Summer", "games": "2024 Paris", "archetype_id": 1 },
+  { "name": "Sam Mattis", "sex": "M", "age": 27, "height_cm": 196, "weight_kg": 113, "sport": "Athletics", "event": "Discus Throw", "year": 2024, "season": "Summer", "games": "2024 Paris", "archetype_id": 1 },
+  { "name": "DeAnna Price", "sex": "F", "age": 28, "height_cm": 180, "weight_kg": 102, "sport": "Athletics", "event": "Hammer Throw", "year": 2021, "season": "Summer", "games": "2020 Tokyo", "archetype_id": 1 },
+
+  { "name": "Tara Davis-Woodhall", "sex": "F", "age": 25, "height_cm": 175, "weight_kg": 60, "sport": "Athletics", "event": "Long Jump", "year": 2024, "season": "Summer", "medal": "Gold", "games": "2024 Paris", "archetype_id": 6 },
+  { "name": "Will Claye", "sex": "M", "age": 25, "height_cm": 178, "weight_kg": 70, "sport": "Athletics", "event": "Triple Jump", "year": 2016, "season": "Summer", "medal": "Silver", "games": "2016 Rio", "archetype_id": 6 },
+
+  { "name": "Galen Rupp", "sex": "M", "age": 25, "height_cm": 180, "weight_kg": 60, "sport": "Athletics", "event": "10000m", "year": 2012, "season": "Summer", "medal": "Silver", "games": "2012 London", "archetype_id": 2 },
+  { "name": "Meb Keflezighi", "sex": "M", "age": 29, "height_cm": 168, "weight_kg": 56, "sport": "Athletics", "event": "Marathon", "year": 2004, "season": "Summer", "medal": "Silver", "games": "2004 Athens", "archetype_id": 2 },
+  { "name": "Molly Seidel", "sex": "F", "age": 27, "height_cm": 168, "weight_kg": 51, "sport": "Athletics", "event": "Marathon", "year": 2021, "season": "Summer", "medal": "Bronze", "games": "2020 Tokyo", "archetype_id": 2 },
+  { "name": "Emily Sisson", "sex": "F", "age": 29, "height_cm": 165, "weight_kg": 50, "sport": "Athletics", "event": "Marathon", "year": 2021, "season": "Summer", "games": "2020 Tokyo", "archetype_id": 2 },
+
+  { "name": "Michael Phelps", "sex": "M", "age": 23, "height_cm": 193, "weight_kg": 88, "sport": "Swimming", "event": "Multi-event", "year": 2008, "season": "Summer", "medal": "Gold", "games": "2008 Beijing", "archetype_id": 4 },
+  { "name": "Katie Ledecky", "sex": "F", "age": 19, "height_cm": 183, "weight_kg": 70, "sport": "Swimming", "event": "800m / 1500m Freestyle", "year": 2016, "season": "Summer", "medal": "Gold", "games": "2016 Rio", "archetype_id": 2 },
+  { "name": "Caeleb Dressel", "sex": "M", "age": 25, "height_cm": 191, "weight_kg": 88, "sport": "Swimming", "event": "100m Freestyle / Butterfly", "year": 2021, "season": "Summer", "medal": "Gold", "games": "2020 Tokyo", "archetype_id": 4 },
+  { "name": "Bobby Finke", "sex": "M", "age": 24, "height_cm": 188, "weight_kg": 78, "sport": "Swimming", "event": "1500m Freestyle", "year": 2024, "season": "Summer", "medal": "Gold", "games": "2024 Paris", "archetype_id": 2 },
+  { "name": "Torri Huske", "sex": "F", "age": 21, "height_cm": 178, "weight_kg": 65, "sport": "Swimming", "event": "100m Butterfly", "year": 2024, "season": "Summer", "medal": "Gold", "games": "2024 Paris", "archetype_id": 4 },
+  { "name": "Regan Smith", "sex": "F", "age": 22, "height_cm": 178, "weight_kg": 68, "sport": "Swimming", "event": "200m Backstroke", "year": 2024, "season": "Summer", "medal": "Silver", "games": "2024 Paris", "archetype_id": 4 },
+
+  { "name": "Simone Biles", "sex": "F", "age": 19, "height_cm": 142, "weight_kg": 47, "sport": "Gymnastics", "event": "All-Around", "year": 2016, "season": "Summer", "medal": "Gold", "games": "2016 Rio", "archetype_id": 3 },
+  { "name": "Sunisa Lee", "sex": "F", "age": 18, "height_cm": 160, "weight_kg": 54, "sport": "Gymnastics", "event": "All-Around", "year": 2021, "season": "Summer", "medal": "Gold", "games": "2020 Tokyo", "archetype_id": 3 },
+  { "name": "Aly Raisman", "sex": "F", "age": 22, "height_cm": 158, "weight_kg": 52, "sport": "Gymnastics", "event": "All-Around", "year": 2016, "season": "Summer", "medal": "Silver", "games": "2016 Rio", "archetype_id": 3 },
+  { "name": "Stephen Nedoroscik", "sex": "M", "age": 25, "height_cm": 168, "weight_kg": 65, "sport": "Gymnastics", "event": "Pommel Horse", "year": 2024, "season": "Summer", "medal": "Bronze", "games": "2024 Paris", "archetype_id": 3 },
+  { "name": "Jordan Chiles", "sex": "F", "age": 23, "height_cm": 158, "weight_kg": 51, "sport": "Gymnastics", "event": "Team All-Around", "year": 2024, "season": "Summer", "medal": "Gold", "games": "2024 Paris", "archetype_id": 3 },
+
+  { "name": "Brady Ellison", "sex": "M", "age": 32, "height_cm": 178, "weight_kg": 78, "sport": "Archery", "event": "Individual", "year": 2021, "season": "Summer", "medal": "Bronze", "games": "2020 Tokyo", "archetype_id": 3 },
+  { "name": "Casey Kaufhold", "sex": "F", "age": 20, "height_cm": 175, "weight_kg": 64, "sport": "Archery", "event": "Individual", "year": 2024, "season": "Summer", "games": "2024 Paris", "archetype_id": 3 },
+  { "name": "Vincent Hancock", "sex": "M", "age": 32, "height_cm": 180, "weight_kg": 82, "sport": "Shooting", "event": "Skeet", "year": 2021, "season": "Summer", "medal": "Gold", "games": "2020 Tokyo", "archetype_id": 3 },
+
+  { "name": "Lee Kiefer", "sex": "F", "age": 27, "height_cm": 165, "weight_kg": 58, "sport": "Fencing", "event": "Foil", "year": 2021, "season": "Summer", "medal": "Gold", "games": "2020 Tokyo", "archetype_id": 3 },
+
+  { "name": "Ashton Eaton", "sex": "M", "age": 24, "height_cm": 185, "weight_kg": 84, "sport": "Athletics", "event": "Decathlon", "year": 2012, "season": "Summer", "medal": "Gold", "games": "2012 London", "archetype_id": 4 },
+  { "name": "Bryan Clay", "sex": "M", "age": 28, "height_cm": 178, "weight_kg": 82, "sport": "Athletics", "event": "Decathlon", "year": 2008, "season": "Summer", "medal": "Gold", "games": "2008 Beijing", "archetype_id": 4 },
+
+  { "name": "Jordan Burroughs", "sex": "M", "age": 24, "height_cm": 178, "weight_kg": 74, "sport": "Wrestling", "event": "Freestyle 74kg", "year": 2012, "season": "Summer", "medal": "Gold", "games": "2012 London", "archetype_id": 5 },
+  { "name": "Kyle Snyder", "sex": "M", "age": 20, "height_cm": 185, "weight_kg": 97, "sport": "Wrestling", "event": "Freestyle 97kg", "year": 2016, "season": "Summer", "medal": "Gold", "games": "2016 Rio", "archetype_id": 5 },
+  { "name": "Helen Maroulis", "sex": "F", "age": 24, "height_cm": 165, "weight_kg": 53, "sport": "Wrestling", "event": "Freestyle 53kg", "year": 2016, "season": "Summer", "medal": "Gold", "games": "2016 Rio", "archetype_id": 5 },
+  { "name": "Tamyra Mensah-Stock", "sex": "F", "age": 28, "height_cm": 173, "weight_kg": 68, "sport": "Wrestling", "event": "Freestyle 68kg", "year": 2021, "season": "Summer", "medal": "Gold", "games": "2020 Tokyo", "archetype_id": 5 },
+  { "name": "Kayla Harrison", "sex": "F", "age": 26, "height_cm": 173, "weight_kg": 78, "sport": "Judo", "event": "78kg", "year": 2016, "season": "Summer", "medal": "Gold", "games": "2016 Rio", "archetype_id": 5 },
+
+  { "name": "Greg Louganis", "sex": "M", "age": 28, "height_cm": 175, "weight_kg": 68, "sport": "Diving", "event": "Platform / Springboard", "year": 1988, "season": "Summer", "medal": "Gold", "games": "1988 Seoul", "archetype_id": 7 },
+  { "name": "Laura Wilkinson", "sex": "F", "age": 22, "height_cm": 165, "weight_kg": 53, "sport": "Diving", "event": "10m Platform", "year": 2000, "season": "Summer", "medal": "Gold", "games": "2000 Sydney", "archetype_id": 7 },
+  { "name": "David Boudia", "sex": "M", "age": 23, "height_cm": 173, "weight_kg": 70, "sport": "Diving", "event": "10m Platform", "year": 2012, "season": "Summer", "medal": "Gold", "games": "2012 London", "archetype_id": 7 },
+
+  { "name": "Megan Kalmoe", "sex": "F", "age": 30, "height_cm": 178, "weight_kg": 75, "sport": "Rowing", "event": "Quadruple Sculls", "year": 2012, "season": "Summer", "medal": "Bronze", "games": "2012 London", "archetype_id": 2 },
+  { "name": "Mike Teti", "sex": "M", "age": 26, "height_cm": 195, "weight_kg": 92, "sport": "Rowing", "event": "Eights", "year": 1996, "season": "Summer", "medal": "Bronze", "games": "1996 Atlanta", "archetype_id": 2 },
+
+  { "name": "Diana Taurasi", "sex": "F", "age": 22, "height_cm": 183, "weight_kg": 73, "sport": "Basketball", "event": "Team", "year": 2004, "season": "Summer", "medal": "Gold", "games": "2004 Athens", "archetype_id": 6 },
+  { "name": "Steve Cash", "sex": "M", "age": 24, "height_cm": 188, "weight_kg": 88, "sport": "Sailing", "event": "470 Class", "year": 2008, "season": "Summer", "games": "2008 Beijing", "archetype_id": 7 }
+]

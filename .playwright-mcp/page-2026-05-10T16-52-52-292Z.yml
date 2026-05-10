@@ -1,0 +1,128 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - navigation [ref=e3]:
+      - link "ADN ATHLETE DNA Team USA · 120 Years" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e5]: ADN
+        - generic [ref=e6]:
+          - generic [ref=e7]: ATHLETE DNA
+          - generic [ref=e8]: Team USA · 120 Years
+      - generic [ref=e9]:
+        - link "← Home" [ref=e10] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e11]: Powered by Gemini 2.5
+    - generic [ref=e13]:
+      - generic [ref=e14]:
+        - generic [ref=e15]:
+          - separator [ref=e16]
+          - generic [ref=e17]: The Archetype Profile
+        - heading "EXPLOSIVE POWERHOUSE" [level=1] [ref=e18]
+        - paragraph [ref=e19]: Built for force. Your profile aligns with Team USA’s most powerful athletes across 120 years.
+      - complementary [ref=e20]:
+        - generic [ref=e21]:
+          - generic [ref=e23]:
+            - generic [ref=e24]: POWER
+            - generic [ref=e25]: 9/10
+          - generic [ref=e29]:
+            - generic [ref=e30]: ENDURANCE
+            - generic [ref=e31]: 3/10
+          - generic [ref=e34]:
+            - generic [ref=e35]: PRECISION
+            - generic [ref=e36]: 5/10
+        - separator [ref=e38]
+        - generic [ref=e39]:
+          - term [ref=e40]: Height
+          - definition [ref=e41]: 188 cm
+          - term [ref=e42]: Weight
+          - definition [ref=e43]: 118 kg
+          - term [ref=e44]: Arm Span
+          - definition [ref=e45]: 190 cm
+          - term [ref=e46]: Build
+          - definition [ref=e47]: broad powerful
+    - navigation [ref=e48]:
+      - generic [ref=e49]:
+        - button "01 Your Sports" [ref=e50]:
+          - generic [ref=e51]: "01"
+          - generic [ref=e52]: Your Sports
+        - button "02 Historical Twins" [ref=e54]:
+          - generic [ref=e55]: "02"
+          - generic [ref=e56]: Historical Twins
+        - button "03 Era Walk" [ref=e57]:
+          - generic [ref=e58]: "03"
+          - generic [ref=e59]: Era Walk
+        - button "04 Athlete Card" [ref=e60]:
+          - generic [ref=e61]: "04"
+          - generic [ref=e62]: Athlete Card
+    - generic [ref=e64]:
+      - complementary [ref=e65]:
+        - generic [ref=e68]:
+          - generic [ref=e69]: Reasoning
+          - paragraph [ref=e70]: Biometrics, training history, and conversation responses align tightly with the EXPLOSIVE POWERHOUSE centroid — specifically with throws athletes.
+      - generic [ref=e73]:
+        - generic [ref=e74]:
+          - generic [ref=e75]:
+            - heading "Olympic" [level=3] [ref=e76]
+            - generic [ref=e77]: Pathway
+          - generic [ref=e78]:
+            - article [ref=e79]:
+              - generic [ref=e80]:
+                - generic [ref=e81]:
+                  - generic [ref=e82]: OLY · Match Sport
+                  - heading "Shot Put" [level=4] [ref=e83]
+                - generic [ref=e84]:
+                  - generic [ref=e85]: "92"
+                  - generic [ref=e86]: "% Match"
+              - paragraph [ref=e89]: Profile aligns with throws athletes who built Team USA throwing dominance.
+            - article [ref=e90]:
+              - generic [ref=e91]:
+                - generic [ref=e92]:
+                  - generic [ref=e93]: OLY · Match Sport
+                  - heading "Discus Throw" [level=4] [ref=e94]
+                - generic [ref=e95]:
+                  - generic [ref=e96]: "86"
+                  - generic [ref=e97]: "% Match"
+              - paragraph [ref=e100]: Long levers and rotational power read as discus territory.
+            - article [ref=e101]:
+              - generic [ref=e102]:
+                - generic [ref=e103]:
+                  - generic [ref=e104]: OLY · Match Sport
+                  - heading "Hammer Throw" [level=4] [ref=e105]
+                - generic [ref=e106]:
+                  - generic [ref=e107]: "81"
+                  - generic [ref=e108]: "% Match"
+              - paragraph [ref=e111]: Rotational throws favor your stocky-tall combination.
+        - generic [ref=e112]:
+          - generic [ref=e113]:
+            - heading "Paralympic" [level=3] [ref=e114]
+            - generic [ref=e115]: Pathway
+          - generic [ref=e116]:
+            - article [ref=e117]:
+              - generic [ref=e118]:
+                - generic [ref=e119]:
+                  - generic [ref=e120]: PARA · Match Sport
+                  - heading "Paralympic Powerlifting" [level=4] [ref=e121]
+                - generic [ref=e122]:
+                  - generic [ref=e123]: "84"
+                  - generic [ref=e124]: "% Match"
+              - paragraph [ref=e127]: Build and strength signature are signature powerlifting traits.
+            - article [ref=e128]:
+              - generic [ref=e129]:
+                - generic [ref=e130]:
+                  - generic [ref=e131]: PARA · Match Sport
+                  - heading "Shot Put (F40-F46)" [level=4] [ref=e132]
+                - generic [ref=e133]:
+                  - generic [ref=e134]: "80"
+                  - generic [ref=e135]: "% Match"
+              - paragraph [ref=e138]: Throws translate cleanly to seated and limb-difference classes.
+            - article [ref=e139]:
+              - generic [ref=e140]:
+                - generic [ref=e141]:
+                  - generic [ref=e142]: PARA · Match Sport
+                  - heading "Discus (F40-F46)" [level=4] [ref=e143]
+                - generic [ref=e144]:
+                  - generic [ref=e145]: "78"
+                  - generic [ref=e146]: "% Match"
+              - paragraph [ref=e149]: Power-rotation profile carries over to seated discus.
+  - button "Open Next.js Dev Tools" [ref=e155] [cursor=pointer]:
+    - img [ref=e156]
+  - alert [ref=e159]
