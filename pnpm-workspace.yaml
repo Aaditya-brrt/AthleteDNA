@@ -1,3 +1,4 @@
-ignoredBuiltDependencies:
-  - sharp
-  - unrs-resolver
+# pnpm 11+ reads dependency script policy here (not package.json "pnpm").
+allowBuilds:
+  sharp: true
+  unrs-resolver: true
