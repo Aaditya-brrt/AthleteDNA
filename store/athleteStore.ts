@@ -45,7 +45,9 @@ export interface ClassificationResult {
 }
 
 export interface TwinAthlete {
-  name: string;
+  // No athlete names on the client. `code` is a server-assembled cohort handle
+  // (pathway · year · discipline · roster letter).
+  code: string;
   sport: string;
   event: string;
   year: number;

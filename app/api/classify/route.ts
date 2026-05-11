@@ -128,8 +128,10 @@ export async function POST(req: Request) {
     arm_span_cm: formData.arm_span_cm ?? formData.height_cm ?? 178,
   };
 
-  // Deterministic ranker — same scoring used for shortlist + fallback
-  const ranking = rankArchetypes(userBiometrics, formData);
+  // Deterministic ranker — same scoring used for shortlist + fallback.
+  // Summary keywords let explicit user intent ("explosive power", "endurance")
+  // override biometric distance for average-build users.
+  const ranking = rankArchetypes(userBiometrics, formData, conversationSummary);
   const shortlist = ranking.slice(0, 3);
 
   console.log(

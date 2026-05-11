@@ -187,6 +187,21 @@ select:focus {
   color: #FDFBF7;
 }
 
+/* Hide scrollbars without disabling scroll — used on the corridor route.
+   Class is applied to BOTH <html> and <body> since browsers may render the
+   scrollbar on either depending on overflow chain. */
+html.scrollbar-hidden,
+body.scrollbar-hidden {
+  scrollbar-width: none !important;     /* Firefox */
+  -ms-overflow-style: none !important;  /* Legacy Edge / IE */
+}
+html.scrollbar-hidden::-webkit-scrollbar,
+body.scrollbar-hidden::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;             /* Chromium / WebKit */
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,

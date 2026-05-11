@@ -46,6 +46,19 @@ export default function CorridorPage() {
     return () => cancelAnimationFrame(t);
   }, []);
 
+  // Hide the window scrollbar while on the corridor route. Scrolling itself
+  // stays functional — only the visual scrollbar is suppressed. Browsers
+  // attach the actual scrollbar to documentElement (<html>), not body, so
+  // apply the class there.
+  useEffect(() => {
+    document.documentElement.classList.add("scrollbar-hidden");
+    document.body.classList.add("scrollbar-hidden");
+    return () => {
+      document.documentElement.classList.remove("scrollbar-hidden");
+      document.body.classList.remove("scrollbar-hidden");
+    };
+  }, []);
+
   // Send back to start if user lands here without an archetype (after hydration)
   useEffect(() => {
     if (!hydrated) return;
@@ -403,7 +416,7 @@ function StageOverlay({
           </span>
         </div>
         <h3 className="font-display text-2xl md:text-3xl font-semibold leading-tight">
-          <Typewriter key={`title-${activeIndex}`} text={era.athlete_anchor} delay={20} />
+          <Typewriter key={`title-${activeIndex}`} text={era.achievement} delay={20} />
         </h3>
         <p className="text-[15px] leading-relaxed text-[#FDFBF7]/85 max-w-prose font-light">
           <Typewriter key={`narr-${activeIndex}`} text={era.narrative} delay={12} startAfter={300} />
@@ -412,7 +425,7 @@ function StageOverlay({
           className="pl-4 border-l-2 italic font-display text-lg text-[#FDFBF7]/90"
           style={{ borderColor: signatureColor }}
         >
-          <Typewriter key={`q-${activeIndex}`} text={era.ghost_quote} delay={18} startAfter={1000} />
+          <Typewriter key={`q-${activeIndex}`} text={era.archetype_motto} delay={18} startAfter={1000} />
         </blockquote>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 text-[12px] text-[#FDFBF7]/70 leading-relaxed">
           <div>
@@ -439,27 +452,27 @@ function StageOverlay({
           <span className="kicker text-[#FDFBF7]/65">Twins Hall</span>
         </div>
         <h3 className="font-display text-2xl md:text-3xl font-semibold leading-tight">
-          {total} historical athletes share your DNA proportions.
+          {total} historical Team USA roster cohorts share your DNA proportions.
         </h3>
         <p className="text-[14px] text-[#FDFBF7]/75 leading-relaxed font-light max-w-prose">
-          On the left wall, {stage.olympic.length} Team USA Olympians whose biometric profile sits closest to yours. On the
-          right, {stage.paralympic.length} Paralympians the same way. Each plaque shows year · sport · similarity.
+          On the left wall, {stage.olympic.length} Olympic cohorts whose biometric profile sits closest to yours. On the
+          right, {stage.paralympic.length} Paralympic cohorts the same way. Each plaque shows a discipline-coded cohort handle, year, and similarity — never an individual name.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 pt-3 text-[12px] text-[#FDFBF7]/85">
           <div className="space-y-1">
-            <div className="kicker text-[#FDFBF7]/50 mb-1">Olympic Twins</div>
+            <div className="kicker text-[#FDFBF7]/50 mb-1">Olympic Cohorts</div>
             {stage.olympic.slice(0, 3).map((t) => (
-              <div key={`o-${t.name}`} className="flex justify-between gap-3 border-b border-[#FDFBF7]/10 py-1">
-                <span>{t.name}</span>
+              <div key={`o-${t.code}`} className="flex justify-between gap-3 border-b border-[#FDFBF7]/10 py-1">
+                <span className="font-mono tracking-[0.06em]">{t.code}</span>
                 <span className="font-mono text-[#FDFBF7]/55">{t.similarity_percent}% · {t.year}</span>
               </div>
             ))}
           </div>
           <div className="space-y-1">
-            <div className="kicker text-[#FDFBF7]/50 mb-1">Paralympic Twins</div>
+            <div className="kicker text-[#FDFBF7]/50 mb-1">Paralympic Cohorts</div>
             {stage.paralympic.slice(0, 3).map((t) => (
-              <div key={`p-${t.name}`} className="flex justify-between gap-3 border-b border-[#FDFBF7]/10 py-1">
-                <span>{t.name}</span>
+              <div key={`p-${t.code}`} className="flex justify-between gap-3 border-b border-[#FDFBF7]/10 py-1">
+                <span className="font-mono tracking-[0.06em]">{t.code}</span>
                 <span className="font-mono text-[#FDFBF7]/55">{t.similarity_percent}% · {t.year}</span>
               </div>
             ))}

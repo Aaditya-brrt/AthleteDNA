@@ -20,16 +20,16 @@ interface GeminiEraEnrichment {
   eras: Array<{
     year: number;
     narrative: string;
-    ghost_quote: string;
+    archetype_motto: string;
     cultural_context: string;
     takeaway: string;
   }>;
 }
 
-function fallbackNarrative(seed: (typeof ERA_SEEDS)[ArchetypeId][number], archetypeName: string): Pick<Era, "narrative" | "ghost_quote" | "cultural_context" | "takeaway"> {
+function fallbackNarrative(seed: (typeof ERA_SEEDS)[ArchetypeId][number], archetypeName: string): Pick<Era, "narrative" | "archetype_motto" | "cultural_context" | "takeaway"> {
   return {
-    narrative: `In ${seed.year}, ${seed.athlete_anchor} embodied the ${archetypeName} profile at ${seed.games}. ${seed.achievement}. Athletes with this archetype historically converged on this discipline because the body's natural levers aligned with what the sport demanded.`,
-    ghost_quote: `"${seed.achievement.split(";")[0]}." — ${seed.athlete_anchor}`,
+    narrative: `In ${seed.year}, the ${archetypeName} profile defined ${seed.sport.toLowerCase()} at ${seed.games}. ${seed.achievement}. Athletes with this archetype historically converged on this discipline because the body's natural levers aligned with what the sport demanded.`,
+    archetype_motto: `"${seed.achievement.split(";")[0]}."`,
     cultural_context: `This moment shaped how Team USA approached ${seed.sport.toLowerCase()} for the decades that followed.`,
     takeaway: `Profiles like yours have historically aligned with this kind of breakthrough.`,
   };
@@ -72,7 +72,7 @@ export async function POST(req: Request) {
   }
 
   const seedSummary = ordered
-    .map((s, i) => `${i + 1}. ${s.year} — ${s.games} — ${s.athlete_anchor} — ${s.sport} — ${s.pathway.toUpperCase()} — ${s.achievement}`)
+    .map((s, i) => `${i + 1}. ${s.year} — ${s.games} — ${s.sport} — ${s.pathway.toUpperCase()} — ${s.achievement}`)
     .join("\n");
 
   const prompt = `You are writing an editorial mini-documentary script for an interactive 3D museum corridor.
@@ -81,26 +81,28 @@ Archetype: ${archetypeName}
 Signature color: ${color}
 The corridor alternates Olympic and Paralympic anchors — equal weight, equal depth. ${body.paralympicFirst ? "This walk leads with the Paralympic anchor." : "This walk opens with an Olympic anchor."} Treat both pathways with the same editorial voice and the same narrative depth — no condescension or "inspiration" framing for Paralympic athletes; their achievements are athletic, technical, and historic on equal terms.
 
+CRITICAL ANONYMITY RULE: never name any individual athlete, past or present. Write entirely about the moment, the discipline, the cohort, and the archetype. If a name is the only way to make a sentence land, rewrite the sentence. Refer to participants as "the Team USA roster", "this cohort", "athletes with this archetype", "the discipline", or by event ("the 100m gold medallist of these Games"). No nicknames, no monikers, no descriptors that identify exactly one person (e.g. "the first American woman to..."). Performance facts (times, distances, medal counts) are fine.
+
 The corridor has six rooms. Each room corresponds to one historical anchor below — DO NOT change the anchors:
 
 ${seedSummary}
 
 For each room, write exactly:
-- "narrative": 2 sentences (50–70 words total). Editorial, present-tense, magazine voice. Explain why this athlete's body and discipline aligned with the ${archetypeName} archetype, and what changed after this moment. Use only conditional language about the user ("athletes with this profile", "could", "may", "historically associated with"). NEVER say "you will" or "you can achieve".
-- "ghost_quote": 1 short evocative line in first person, attributed to the named athlete. Plausible to their voice; it does not have to be a real verified quote, but should sound like something they might say. Keep under 20 words. Format: "Quote text." — Athlete Name
-- "cultural_context": 1 sentence on what was happening in the broader sport / world at that time.
+- "narrative": 2 sentences (50–70 words total). Editorial, present-tense, magazine voice. Explain why this discipline and this archetype converged at this moment, and what changed in the sport after. Use only conditional language about the user ("athletes with this profile", "could", "may", "historically associated with"). NEVER say "you will" or "you can achieve". Never name an athlete.
+- "archetype_motto": 1 short manifesto-style line in archetype voice (first person plural "we"), UNATTRIBUTED. No quotation marks attributing to a person. Under 18 words. Example shape: "We arrive heavy and leave first."
+- "cultural_context": 1 sentence on what was happening in the broader sport / world at that time. No athlete names.
 - "takeaway": 1 sentence connecting this moment back to the archetype's pattern of dominance.
 
 Also write:
-- "intro": 1 sentence setting up the corridor for a ${archetypeName} viewer (40 words max).
-- "outro": 1 sentence sending the viewer forward (30 words max).
+- "intro": 1 sentence setting up the corridor for a ${archetypeName} viewer (40 words max). No names.
+- "outro": 1 sentence sending the viewer forward (30 words max). No names.
 
 Return STRICT JSON, schema:
 {
   "intro": string,
   "outro": string,
   "eras": [
-    { "year": number, "narrative": string, "ghost_quote": string, "cultural_context": string, "takeaway": string }
+    { "year": number, "narrative": string, "archetype_motto": string, "cultural_context": string, "takeaway": string }
   ]
 }
 
@@ -120,7 +122,7 @@ The eras array MUST contain exactly ${seeds.length} entries in the same order as
         ...seed,
         decade,
         narrative: enriched.narrative,
-        ghost_quote: enriched.ghost_quote,
+        archetype_motto: enriched.archetype_motto,
         cultural_context: enriched.cultural_context,
         takeaway: enriched.takeaway,
       };

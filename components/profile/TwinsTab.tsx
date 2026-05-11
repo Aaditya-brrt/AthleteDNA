@@ -32,7 +32,7 @@ function TwinCard({ twin, archetypeColor, index }: { twin: TwinAthlete; archetyp
             </span>
           )}
         </div>
-        <h4 className="font-display font-semibold text-xl leading-tight">{twin.name}</h4>
+        <h4 className="font-mono font-semibold text-base leading-tight tracking-[0.08em]">{twin.code}</h4>
         <div className="text-xs text-[#52525B] font-light">{twin.event}</div>
       </header>
 
@@ -106,17 +106,17 @@ export function TwinsTab({ archetypeColor }: TwinsTabProps) {
   return (
     <div className="space-y-8">
       <header className="space-y-2 max-w-2xl">
-        <div className="kicker">Historical Twins</div>
+        <div className="kicker">Historical Cohorts</div>
         <h3 className="font-display text-3xl font-semibold leading-tight">
-          Athletes from 120 years of Team USA who share your biometric cluster.
+          Roster cohorts from 120 years of Team USA that share your biometric cluster.
         </h3>
         <p className="text-sm text-[#52525B] leading-relaxed font-light">
-          Equal split: three Olympic, three Paralympic. No exceptions.
+          Equal split: three Olympic, three Paralympic. Cohorts are referenced by discipline-coded handles — never by individual name.
         </p>
       </header>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
         {ordered.map((t, i) => (
-          <TwinCard key={`${t.name}-${i}`} twin={t} archetypeColor={archetypeColor} index={i} />
+          <TwinCard key={`${t.code}-${i}`} twin={t} archetypeColor={archetypeColor} index={i} />
         ))}
       </div>
     </div>

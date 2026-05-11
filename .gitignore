@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# playwright MCP scratch
+.playwright-mcp/
+
+# ad-hoc screenshots from dev/Playwright runs (keep anything under public/)
+*.png
+!public/**/*.png

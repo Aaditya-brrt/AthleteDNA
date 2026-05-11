@@ -537,29 +537,29 @@ function Mural({ era, signatureColor, isActive }: { era: Era; signatureColor: st
       </Text>
       <Text
         position={[-3.9, 0.55, 0.02]}
-        fontSize={0.78}
+        fontSize={0.46}
         color="#FDFBF7"
         anchorX="left"
         anchorY="middle"
         maxWidth={7.6}
-        lineHeight={0.95}
+        lineHeight={1.1}
         material-toneMapped={false}
       >
-        {era.athlete_anchor}
+        {era.achievement}
       </Text>
       <Text
-        position={[-3.9, -0.5, 0.02]}
-        fontSize={0.21}
+        position={[-3.9, -0.6, 0.02]}
+        fontSize={0.22}
         color="#FDFBF7"
         anchorX="left"
         anchorY="top"
         maxWidth={7.6}
         lineHeight={1.3}
         material-toneMapped={false}
-        material-opacity={0.85}
+        material-opacity={0.78}
         material-transparent
       >
-        {era.achievement}
+        {era.archetype_motto}
       </Text>
       <mesh position={[-3.9, -1.65, 0.02]}>
         <planeGeometry args={[1.2, 0.02]} />
@@ -655,7 +655,7 @@ function TwinsHallRoom({
         material-transparent
         letterSpacing={0.3}
       >
-        ATHLETES WHO SHARE YOUR DNA PROPORTIONS
+        ROSTER COHORTS WITH YOUR DNA PROPORTIONS
       </Text>
 
       {/* LEFT wall — 3 ghosts */}
@@ -699,7 +699,7 @@ function TwinsHallRoom({
         material-transparent
         letterSpacing={0.3}
       >
-        {paralympicFirst ? "PARALYMPIC TWINS" : "OLYMPIC TWINS"}
+        {paralympicFirst ? "PARALYMPIC COHORTS" : "OLYMPIC COHORTS"}
       </Text>
       <Text
         position={[CORRIDOR_WIDTH / 2 - 1.8, 3.7, -5]}
@@ -712,7 +712,7 @@ function TwinsHallRoom({
         material-transparent
         letterSpacing={0.3}
       >
-        {paralympicFirst ? "OLYMPIC TWINS" : "PARALYMPIC TWINS"}
+        {paralympicFirst ? "OLYMPIC COHORTS" : "PARALYMPIC COHORTS"}
       </Text>
     </group>
   );
@@ -737,7 +737,7 @@ function TwinPlaque({
     ref.current.position.y = MathUtils.lerp(ref.current.position.y, isActive ? 0.05 : -0.4, 1 - Math.pow(0.05, delta));
     ref.current.rotation.y = state.clock.elapsedTime * 0.2 + position[2];
   });
-  const rotY = facing === "left" ? Math.PI / 2 : -Math.PI / 2;
+  const rotY = facing === "right" ? Math.PI / 2 : -Math.PI / 2;
   return (
     <group position={position}>
       {/* Ghost figure */}
@@ -775,15 +775,16 @@ function TwinPlaque({
         </Text>
         <Text
           position={[0, 0.1, 0]}
-          fontSize={0.32}
+          fontSize={0.24}
           color="#FDFBF7"
           anchorX="center"
           anchorY="middle"
-          maxWidth={3.2}
+          maxWidth={3.5}
           lineHeight={1.05}
           material-toneMapped={false}
+          letterSpacing={0.08}
         >
-          {twin.name}
+          {twin.code}
         </Text>
         <Text
           position={[0, -0.3, 0]}

@@ -68,9 +68,14 @@ export interface ArchetypeScore {
 
 const ALL_IDS: ArchetypeId[] = [1, 2, 3, 4, 5, 6, 7, 8];
 
-export function rankArchetypes(user: UserBiometrics, form: Partial<FormData>): ArchetypeScore[] {
+export function rankArchetypes(
+  user: UserBiometrics,
+  form: Partial<FormData>,
+  summary?: string
+): ArchetypeScore[] {
   const userVec = toBiometricVector(user);
   const hasImpairment = !!form.has_impairment;
+  const summaryLower = (summary ?? "").toLowerCase();
 
   const raw = ALL_IDS.map<ArchetypeScore>((id) => {
     // Biometric closeness — lower distance → higher fit. Map 0..0.6 → 1..0.
@@ -80,19 +85,21 @@ export function rankArchetypes(user: UserBiometrics, form: Partial<FormData>): A
 
     let signalBoost = 0;
 
-    // Build signals
+    // Build signals — weighted to compete with biometric distance (centroids
+    // span a wide range, e.g. EXPLOSIVE=115kg vs AEROBIC=68kg, so a moderate
+    // build alone can't close the gap; intent signals must.)
     const build = form.build;
     if (build === "broad_powerful" && (id === 1 || id === 5)) {
-      signalBoost += 0.18; reasons.push("broad_powerful build aligns with throwers/grapplers");
+      signalBoost += 0.35; reasons.push("broad_powerful build aligns with throwers/grapplers");
     }
     if (build === "stocky" && (id === 1 || id === 5)) {
-      signalBoost += 0.12; reasons.push("stocky build aligns with strength archetypes");
+      signalBoost += 0.22; reasons.push("stocky build aligns with strength archetypes");
     }
     if (build === "lean" && (id === 2 || id === 6)) {
-      signalBoost += 0.16; reasons.push("lean build aligns with endurance/sprint");
+      signalBoost += 0.22; reasons.push("lean build aligns with endurance/sprint");
     }
     if (build === "tall_lean" && (id === 6 || id === 2)) {
-      signalBoost += 0.14; reasons.push("tall_lean build aligns with sprinter/rower frame");
+      signalBoost += 0.2; reasons.push("tall_lean build aligns with sprinter/rower frame");
     }
     if (build === "athletic" && id === 4) {
       signalBoost += 0.06; reasons.push("athletic build mildly aligns with multi-event");
@@ -122,8 +129,19 @@ export function rankArchetypes(user: UserBiometrics, form: Partial<FormData>): A
     const sportHits = SPORT_TO_ARCHETYPE[id] ?? [];
     const matched = sports.filter((s) => sportHits.some((kw) => s.includes(kw)));
     if (matched.length > 0) {
-      signalBoost += Math.min(0.25, matched.length * 0.1);
+      signalBoost += Math.min(0.3, matched.length * 0.12);
       reasons.push(`sport history (${matched.join(", ")}) matches archetype primaries`);
+    }
+
+    // Conversation-summary keyword signals — picks up explicit intent the
+    // user expressed during Gemini Q&A ("explosive power", "endurance", etc.)
+    if (summaryLower) {
+      const kwHits = SUMMARY_KEYWORDS[id] ?? [];
+      const matchedKw = kwHits.filter((kw) => summaryLower.includes(kw));
+      if (matchedKw.length > 0) {
+        signalBoost += Math.min(0.4, matchedKw.length * 0.15);
+        reasons.push(`conversation keywords (${matchedKw.join(", ")}) point to this archetype`);
+      }
     }
 
     // Active years × competition level — depth of training
@@ -181,4 +199,18 @@ const SPORT_TO_ARCHETYPE: Record<ArchetypeId, string[]> = {
   6: ["sprint", "100m", "200m", "long jump", "triple jump", "table tennis", "badminton"],
   7: ["diving", "equestrian", "sailing", "skating", "gymnastics", "climbing"],
   8: [], // Adaptive Warrior — gated by impairment, not sport history
+};
+
+// Keyword fragments per archetype matched against the lower-cased conversation
+// summary. Lets explicit user intent ("explosive power", "endurance") override
+// otherwise dominant biometric distance.
+const SUMMARY_KEYWORDS: Record<ArchetypeId, string[]> = {
+  1: ["explosive", "power", "throw", "heavy lift", "shot put", "discus", "max strength", "powerlifting", "olympic lift"],
+  2: ["endurance", "aerobic", "long distance", "marathon", "cardio", "stamina", "vo2", "tempo run", "triathlon"],
+  3: ["precision", "accuracy", "aim", "calm under pressure", "fine motor", "archery", "shooting"],
+  4: ["multi-event", "decathlon", "heptathlon", "versatile", "all-around", "well-rounded", "balanced athlete"],
+  5: ["grappling", "wrestling", "judo", "anchor", "hold", "leverage", "contact strength", "strongman"],
+  6: ["sprint", "fast twitch", "reactive", "burst", "acceleration", "first step", "quickness"],
+  7: ["kinetic", "body control", "tumbling", "rotational", "aerial", "graceful", "flow", "rhythm"],
+  8: ["adaptive", "para", "wheelchair", "prosthetic", "amputee", "impairment", "blind sport"],
 };
