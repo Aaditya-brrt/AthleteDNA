@@ -1,6 +1,6 @@
 // Licensed under the Apache License, Version 2.0
 import { NextResponse } from "next/server";
-import { getFlashModel, logIfQuotaError } from "@/lib/gemini";
+import { getFlashModel, logIfQuotaError, withGeminiRetry } from "@/lib/gemini";
 
 export const runtime = "nodejs";
 
@@ -34,7 +34,10 @@ export async function POST(req: Request) {
 
     const model = getFlashModel();
     const chat = model.startChat({ history: body.conversationHistory });
-    const result = await chat.sendMessage(userMessage);
+    const result = await withGeminiRetry(
+      () => chat.sendMessage(userMessage),
+      "conversation/continue"
+    );
     const text = result.response.text();
 
     let parsed: QuestionResponse;

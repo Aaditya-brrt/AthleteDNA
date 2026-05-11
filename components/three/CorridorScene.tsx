@@ -852,8 +852,11 @@ function PathwayRoom({
         TOP THREE SPORTS · OLYMPIC AND PARALYMPIC · EQUAL DEPTH
       </Text>
 
+      {/* sport[0] = user's top match; camera enters from positive Z, so the
+          highest-priority panel sits closest (z = +3) and the third sits
+          deepest (z = -7). User reads them in rank order as they walk in. */}
       {leftSet.slice(0, 3).map((sport, i) => {
-        const z = -7 + i * 5;
+        const z = 3 - i * 5;
         return (
           <SportPanel
             key={`L-${sport.name}`}
@@ -867,7 +870,7 @@ function PathwayRoom({
         );
       })}
       {rightSet.slice(0, 3).map((sport, i) => {
-        const z = -7 + i * 5;
+        const z = 3 - i * 5;
         return (
           <SportPanel
             key={`R-${sport.name}`}

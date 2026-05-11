@@ -34,7 +34,9 @@ export default function CorridorPage() {
     twins,
     setTwins,
   } = useAthleteStore();
-  const [eraData, setEraData] = useState<EraWalkData | null>(eraWalk);
+  // Read straight from store — zustand persist hydrates async, so a local
+  // useState(eraWalk) would capture null at first paint and never resync.
+  const eraData = eraWalk;
   const [twinsLoading, setTwinsLoading] = useState(false);
   const [erasLoading, setErasLoading] = useState(false);
   const [hydrated, setHydrated] = useState(false);
@@ -71,48 +73,35 @@ export default function CorridorPage() {
   const color = archetype?.color ?? "#A88134";
   const isParalympicFirst = paralympicFirst();
 
-  // Fetch eras once
+  // Eras + twins are normally pre-populated by /api/dossier during the
+  // conversation→reveal handoff. We only fetch here as a recovery path when
+  // the user lands on /corridor directly (deep link, refresh after store
+  // was cleared, etc.) — one Gemini call rebuilds the whole dossier.
   useEffect(() => {
     if (!classificationResult) return;
-    if (eraData && eraData.archetype_id === classificationResult.archetype_id) return;
+    if (eraData && twins && eraData.archetype_id === classificationResult.archetype_id) return;
+    if (erasLoading || twinsLoading) return;
     setErasLoading(true);
-    fetch("/api/era-walk", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        archetypeId: classificationResult.archetype_id,
-        archetypeName: classificationResult.archetype,
-        paralympicFirst: isParalympicFirst,
-      }),
-    })
-      .then((r) => r.json())
-      .then((d: EraWalkData) => {
-        setEraData(d);
-        setEraWalk(d);
-      })
-      .finally(() => setErasLoading(false));
-  }, [classificationResult, eraData, isParalympicFirst, setEraWalk]);
-
-  // Fetch twins once
-  useEffect(() => {
-    if (!classificationResult) return;
-    if (twins) return;
     setTwinsLoading(true);
-    fetch("/api/twins", {
+    fetch("/api/dossier", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        archetypeId: classificationResult.archetype_id,
-        height: formData.height_cm,
-        weight: formData.weight_kg,
-        sex: formData.sex,
-        paralympicFirst: isParalympicFirst,
+        formData,
+        conversationSummary: "",
       }),
     })
       .then((r) => r.json())
-      .then((d) => setTwins(d))
-      .finally(() => setTwinsLoading(false));
-  }, [classificationResult, twins, formData, isParalympicFirst, setTwins]);
+      .then((d) => {
+        if (d?.eraWalk) setEraWalk(d.eraWalk);
+        if (d?.twins) setTwins(d.twins);
+      })
+      .finally(() => {
+        setErasLoading(false);
+        setTwinsLoading(false);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [classificationResult]);
 
   const stages: Stage[] = useMemo(() => {
     if (!classificationResult || !eraData) return [];

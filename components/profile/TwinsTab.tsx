@@ -64,22 +64,19 @@ export function TwinsTab({ archetypeColor }: TwinsTabProps) {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    // Twins are normally pre-populated by /api/dossier during reveal handoff.
+    // This effect only runs as a recovery path when the user direct-links to
+    // /profile without going through the conversation flow.
     if (!classificationResult || twins) return;
     setLoading(true);
-    fetch("/api/twins", {
+    fetch("/api/dossier", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        archetypeId: classificationResult.archetype_id,
-        height: formData.height_cm ?? 178,
-        weight: formData.weight_kg ?? 75,
-        sex: formData.sex ?? "male",
-        paralympicFirst: Boolean(formData.has_impairment),
-      }),
+      body: JSON.stringify({ formData, conversationSummary: "" }),
     })
       .then((r) => r.json())
       .then((data) => {
-        setTwins(data);
+        if (data?.twins) setTwins(data.twins);
         setLoading(false);
       })
       .catch((e) => {

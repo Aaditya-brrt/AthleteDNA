@@ -27,12 +27,18 @@ export default function ConversationPage() {
     setConversationHistory,
     setConversationSummary,
     setClassificationResult,
+    setEraWalk,
+    setTwins,
   } = useAthleteStore();
 
   const [history, setHistoryLocal] = useState<{ role: "user" | "model"; parts: { text: string }[] }[]>([]);
   const [current, setCurrent] = useState<Question | null>(null);
   const [textInput, setTextInput] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  // Echo of the just-clicked answer so the UI can paint instant feedback
+  // (highlighted button + "Reading your answer…" line) before the Gemini
+  // round-trip resolves. Cleared when the next question arrives.
+  const [pendingAnswer, setPendingAnswer] = useState<string | null>(null);
   const [phase, setPhase] = useState<"asking" | "classifying" | "done">("asking");
   const [questionIndex, setQuestionIndex] = useState(0);
   const [classifyingMessage, setClassifyingMessage] = useState("");
@@ -69,13 +75,17 @@ export default function ConversationPage() {
     setClassifyingMessage("Analyzing your Athlete DNA…");
     setConversationSummary(summary);
     try {
-      const res = await fetch("/api/classify", {
+      // Single Gemini call returns archetype + eraWalk + twins.
+      // Corridor + TwinsTab read all three from the store afterwards.
+      const res = await fetch("/api/dossier", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ formData, conversationSummary: summary }),
       });
-      const result = await res.json();
-      setClassificationResult(result);
+      const dossier = await res.json();
+      if (dossier?.classification) setClassificationResult(dossier.classification);
+      if (dossier?.eraWalk) setEraWalk(dossier.eraWalk);
+      if (dossier?.twins) setTwins(dossier.twins);
       setClassifyingMessage("DNA mapped. Preparing reveal…");
       setTimeout(() => router.push("/reveal"), 800);
     } catch (e) {
@@ -86,7 +96,12 @@ export default function ConversationPage() {
 
   async function submitAnswer(answer: string) {
     if (!answer.trim()) return;
+    // Paint immediately: mark the selected answer, clear text field, lock UI.
+    // The fetch below blocks for ~1-3s on Gemini; without these flips the
+    // click feels dead and users multi-click.
+    setPendingAnswer(answer);
     setSubmitting(true);
+    setTextInput("");
     try {
       const res = await fetch("/api/conversation/continue", {
         method: "POST",
@@ -107,7 +122,7 @@ export default function ConversationPage() {
       }
       setCurrent({ question: data.question ?? "", options: data.options, type: data.type });
       setQuestionIndex((i) => i + 1);
-      setTextInput("");
+      setPendingAnswer(null);
     } catch (e) {
       console.error(e);
       finalize("Profile gathered.");
@@ -153,25 +168,44 @@ export default function ConversationPage() {
 
                 {current.type === "select" && current.options && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-2 pt-2">
-                    {current.options.map((opt, i) => (
-                      <motion.button
-                        key={opt}
-                        initial={{ opacity: 0, y: 6 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: i * 0.06 }}
-                        whileTap={{ scale: 0.99 }}
-                        disabled={submitting}
-                        onClick={() => submitAnswer(opt)}
-                        className="text-left p-4 bg-[#FFFFFF] border border-[#E4E4E7] hover:border-[#0B0B0F] transition-colors disabled:opacity-50 group"
-                      >
-                        <div className="flex items-center gap-3">
-                          <span className="font-mono text-[10px] text-[#52525B] group-hover:text-[#BF0A30] tracking-wider">
-                            {String.fromCharCode(65 + i)}
-                          </span>
-                          <span className="font-light text-[15px]">{opt}</span>
-                        </div>
-                      </motion.button>
-                    ))}
+                    {current.options.map((opt, i) => {
+                      const isPicked = pendingAnswer === opt;
+                      const isDimmed = submitting && !isPicked;
+                      return (
+                        <motion.button
+                          key={opt}
+                          initial={{ opacity: 0, y: 6 }}
+                          animate={{ opacity: isDimmed ? 0.35 : 1, y: 0 }}
+                          transition={{ delay: submitting ? 0 : i * 0.06 }}
+                          whileTap={{ scale: 0.99 }}
+                          disabled={submitting}
+                          onClick={() => submitAnswer(opt)}
+                          className={`text-left p-4 transition-colors group ${
+                            isPicked
+                              ? "bg-[#0A2240] text-[#FDFBF7] border border-[#0A2240]"
+                              : "bg-[#FFFFFF] border border-[#E4E4E7] hover:border-[#0B0B0F]"
+                          } disabled:cursor-not-allowed`}
+                        >
+                          <div className="flex items-center gap-3">
+                            <span
+                              className={`font-mono text-[10px] tracking-wider ${
+                                isPicked
+                                  ? "text-[#A88134]"
+                                  : "text-[#52525B] group-hover:text-[#BF0A30]"
+                              }`}
+                            >
+                              {String.fromCharCode(65 + i)}
+                            </span>
+                            <span className="font-light text-[15px]">{opt}</span>
+                            {isPicked && (
+                              <span className="ml-auto kicker text-[10px] text-[#A88134]">
+                                Picked
+                              </span>
+                            )}
+                          </div>
+                        </motion.button>
+                      );
+                    })}
                   </div>
                 )}
 
@@ -188,8 +222,9 @@ export default function ConversationPage() {
                       value={textInput}
                       onChange={(e) => setTextInput(e.target.value)}
                       autoFocus
-                      placeholder="Type your answer…"
-                      className="flex-1 p-4 bg-[#FFFFFF] border border-[#E4E4E7] focus:border-[#0B0B0F] focus:outline-none font-mono text-sm placeholder:text-[#52525B]/60"
+                      disabled={submitting}
+                      placeholder={submitting && pendingAnswer ? pendingAnswer : "Type your answer…"}
+                      className="flex-1 p-4 bg-[#FFFFFF] border border-[#E4E4E7] focus:border-[#0B0B0F] focus:outline-none font-mono text-sm placeholder:text-[#52525B]/60 disabled:opacity-60"
                     />
                     <button
                       type="submit"
@@ -199,6 +234,33 @@ export default function ConversationPage() {
                       Send →
                     </button>
                   </form>
+                )}
+
+                {/* Instant feedback strip — paints the moment the user clicks.
+                    Keeps the page feeling responsive while Gemini composes the
+                    next question (typically 1-3 seconds). */}
+                {submitting && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.15 }}
+                    className="flex items-center gap-3 pt-2"
+                  >
+                    <span className="flex gap-1">
+                      <span className="w-1.5 h-1.5 bg-[#0A2240] animate-pulse" />
+                      <span
+                        className="w-1.5 h-1.5 bg-[#0A2240] animate-pulse"
+                        style={{ animationDelay: "120ms" }}
+                      />
+                      <span
+                        className="w-1.5 h-1.5 bg-[#0A2240] animate-pulse"
+                        style={{ animationDelay: "240ms" }}
+                      />
+                    </span>
+                    <span className="kicker text-[#52525B]">
+                      Reading your answer · composing next question
+                    </span>
+                  </motion.div>
                 )}
               </motion.div>
             )}

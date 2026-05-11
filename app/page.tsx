@@ -54,10 +54,11 @@ export default function LandingPage() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="font-display font-semibold leading-[0.95] tracking-tight max-w-5xl"
+          className="font-display font-semibold leading-[1.34] md:leading-[1.26] tracking-[0.015em] max-w-5xl"
           style={{ fontSize: "clamp(2.75rem, 7vw, 6.25rem)" }}
         >
-          Find your athlete archetype in <span className="italic">120 years</span> of Team USA.
+          Find your athlete archetype in{" "}
+          <span className="italic px-[0.05em]">120 years</span> of Team USA.
         </motion.h1>
 
         <motion.p
